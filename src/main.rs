@@ -2,7 +2,7 @@ use clap::Parser;
 
 
 #[derive(Parser)]
-#[command(about = "A CLI tool to fix jellyfin issue 15272")]
+#[command(about = "Small tool to fix jellyfin issue 15272")]
 struct Args {
     /// Path to the database file.
     database_path: String,
