@@ -9,13 +9,11 @@ struct Args {
 }
 fn main() {
     let Args {database_path} = Args::parse();
-
     println!("Fixing jellyfin issue 15272 for database at: {database_path}");
 
     // Use sqlite to open the database.
     let conn = sqlite::Connection::open(&database_path).expect("Failed to open database");
     println!("Database opened successfully.");
-
 
     let mut rows = Vec::new();
     conn.iterate("select Id, Name from BaseItems where DateCreated is null and AlbumArtists is not null", |row| {
