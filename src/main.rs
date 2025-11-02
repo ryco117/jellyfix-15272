@@ -4,7 +4,7 @@ use clap::Parser;
 #[derive(Parser)]
 #[command(about = "Small tool to fix jellyfin issue 15272")]
 struct Args {
-    /// Path to the database file.
+    /// Path to the `jellyfin.db` database file.
     database_path: String,
 }
 fn main() {
