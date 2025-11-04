@@ -17,7 +17,7 @@ fn main() {
     // Find all items with null `DateCreated` but non-null `AlbumArtists` (implying it is an album).
     let mut rows = Vec::new();
     conn.iterate(
-        "select Id, Name from BaseItems where DateCreated is null and AlbumArtists is not null",
+        "select Id, Name from BaseItems where DateCreated is null and Type = 'MediaBrowser.Controller.Entities.Audio.MusicAlbum'",
         |row| {
             let id = row[0].1.expect("Null `Id` column is invalid");
             let album_name = row[1].1.expect("Null `Name` column is invalid");
